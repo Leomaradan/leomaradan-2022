@@ -1,0 +1,39 @@
+{
+  "cv": [
+    {
+      "content": "# 2017 - 2018 \r\n## Développements Freelance\r\n\r\n- Développement de templates et d’extensions WordPress, mise\r\nen place d’un site WordPress de podcast audio avec liaison\r\niTunes\r\n- Développement d’une application « bibliothèque » avec\r\nAngular 2 + ExpressJS\r\n- Développement Frontend avec React (site vitrine d’art)\r\n- Création de sites avec Laravel + VueJS, interactions\r\nbidirectionnelles du site avec Twitter (lecture et écriture de\r\ntweet depuis l’application Laravel)",
+      "order": 0,
+      "title": "Expérience"
+    }
+  ],
+  "galleries": [
+    {
+      "cover": "url.png",
+      "id": "islande-2021",
+      "metadata": {
+        "description": "Islande 2021",
+        "location": {
+          "latitude": 0,
+          "longitude": 0
+        }
+      },
+      "pictures": [
+        {
+          "date": 0,
+          "id": "image-1",
+          "name": "First Picture of Islande 2021",
+          "url": "url.png"
+        }
+      ],
+      "title": "Islande 2021"
+    }
+  ],
+  "home": "Accueil",
+  "links": [
+    {
+      "order": 0,
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/leomaradan"
+    }
+  ]
+}

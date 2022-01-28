@@ -1,0 +1,160 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "definitions": {
+    "CVSection": {
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "order": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": ["content", "order", "title"],
+      "type": "object"
+    },
+    "Gallery": {
+      "additionalProperties": false,
+      "properties": {
+        "cover": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "metadata": {
+          "additionalProperties": false,
+          "properties": {
+            "date": {
+              "type": "number"
+            },
+            "description": {
+              "type": "string"
+            },
+            "location": {
+              "additionalProperties": false,
+              "properties": {
+                "latitude": {
+                  "type": "number"
+                },
+                "longitude": {
+                  "type": "number"
+                }
+              },
+              "required": ["latitude", "longitude"],
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "pictures": {
+          "items": {
+            "$ref": "#/definitions/Picture"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": ["cover", "id", "pictures", "title"],
+      "type": "object"
+    },
+    "Link": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "order": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": ["order", "title", "url"],
+      "type": "object"
+    },
+    "Picture": {
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "type": "number"
+        },
+        "id": {
+          "type": "string"
+        },
+        "metadata": {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "license": {
+              "type": "string"
+            },
+            "location": {
+              "additionalProperties": false,
+              "properties": {
+                "latitude": {
+                  "type": "number"
+                },
+                "longitude": {
+                  "type": "number"
+                }
+              },
+              "required": ["latitude", "longitude"],
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": ["date", "id", "name", "url"],
+      "type": "object"
+    }
+  },
+  "properties": {
+    "cv": {
+      "items": {
+        "$ref": "#/definitions/CVSection"
+      },
+      "type": "array"
+    },
+    "galleries": {
+      "items": {
+        "$ref": "#/definitions/Gallery"
+      },
+      "type": "array"
+    },
+    "home": {
+      "type": "string"
+    },
+    "links": {
+      "items": {
+        "$ref": "#/definitions/Link"
+      },
+      "type": "array"
+    }
+  },
+  "required": ["cv", "galleries", "home", "links"],
+  "type": "object"
+}
