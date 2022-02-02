@@ -1,0 +1,43 @@
+@import "./style.less";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: @font-serif;
+  color: @textColor;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-variant: small-caps;
+  color: @titleColor;
+  font-family: @font-sansSerif;
+  margin: 2rem auto;
+}
+
+a {
+  color: @titleColor;
+  text-decoration: none;
+  &:hover {
+    color: @highlightColor;
+  }
+}
+
+ul {
+  padding: 0;
+}
