@@ -1,10 +1,18 @@
-import type { Data, Gallery } from "./dataType";
+import type { Data, Gallery } from './dataType';
 
-import { derived, writable } from "svelte/store";
+import { derived, writable } from 'svelte/store';
 
-export const data = writable<Data>(null);
+export const data = writable<Data | null>(null);
 
-export const linksStore = derived(data, ($data) => {
+export const seo = writable<{
+  title: string | null;
+  description: string | null;
+}>({
+  description: null,
+  title: null
+});
+
+export const linksStore = derived(data, $data => {
   if ($data !== null) {
     return $data.links.sort((a, b) => a.order - b.order);
   }
@@ -12,15 +20,15 @@ export const linksStore = derived(data, ($data) => {
   return [];
 });
 
-export const cvStore = derived(data, ($data) => {
+export const cvStore = derived(data, $data => {
   if ($data !== null) {
-    return $data.cv.sort((a, b) => a.order - b.order);
+    return $data.cv;
   }
 
-  return [];
+  return {};
 });
 
-export const galleriesStore = derived(data, ($data) => {
+export const galleriesStore = derived(data, $data => {
   if ($data !== null) {
     return $data.galleries;
   }
@@ -29,7 +37,7 @@ export const galleriesStore = derived(data, ($data) => {
 });
 
 export const getGallery = (galleryId: string, galleries: Gallery[]) => {
-  return galleries.find((gallery) => gallery.id === galleryId);
+  return galleries.find(gallery => gallery.id === galleryId);
 };
 
 export const getPicture = (
@@ -40,6 +48,6 @@ export const getPicture = (
   const gallery = getGallery(galleryId, galleries);
 
   if (gallery !== undefined) {
-    return gallery.pictures.find((picture) => picture.id === pictureId);
+    return gallery.pictures.find(picture => picture.id === pictureId);
   }
 };

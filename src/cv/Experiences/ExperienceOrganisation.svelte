@@ -1,15 +1,15 @@
 <script lang="ts">
-  import type { Experience } from "../../dataType";
-  import Item from "../Item.svelte";
+  import type { Experience } from '../../dataType';
+  import Item from '../Item.svelte';
 
   export let experience: Experience;
 
   function getYearDate(time: number) {
-    return new Date(experience.startDate).getFullYear();
+    return new Date(time).getFullYear();
   }
 
   const startYear = getYearDate(experience.startDate);
-  const endYear = getYearDate(experience.endDate);
+  const endYear = experience.endDate ? getYearDate(experience.endDate) : 0;
 
   // $: timeRange = getTimeRange(experience.startDate, experience.endDate);
   const organisationName = experience.organisationName;
@@ -17,7 +17,7 @@
   const startDateString = new Date(experience.startDate).toISOString();
   const endDateString = experience.endDate
     ? new Date(experience.endDate).toISOString()
-    : "";
+    : '';
   const currentDate = new Date().toISOString();
 
   const hasSameStartEndDate = startYear === endYear; // Display end date but with a class to hide it
@@ -32,33 +32,23 @@
   <span itemprop="name">{organisationName}</span>
 
   <span>
-    <time
-      itemprop="startDate"
-      content={startDateString}
-      datetime={startDateString}>{startYear}</time
+    <time itemprop="startDate" content={startDateString} datetime={startDateString}
+      >{startYear}</time
     >
     {#if hasNoEndDate}
       -
-      <time itemprop="endDate" content={currentDate} datetime={currentDate}
-        >Présent</time
-      >
+      <time itemprop="endDate" content={currentDate} datetime={currentDate}>Présent</time>
     {:else}
       <span class:hasSameStartEndDate>
-        <time
-          itemprop="endDate"
-          content={endDateString}
-          datetime={endDateString}>{endYear}</time
+        <time itemprop="endDate" content={endDateString} datetime={endDateString}
+          >{endYear}</time
         >
       </span>
     {/if}
   </span>
 
   <span itemprop="location" itemscope itemtype="http://schema.org/Place">
-    <span
-      itemprop="address"
-      itemscope
-      itemtype="http://schema.org/PostalAddress"
-    >
+    <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
       <span itemprop="addressLocality">{experience.location}</span>
     </span>
   </span>

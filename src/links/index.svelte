@@ -1,14 +1,19 @@
 <script lang="ts">
-  import type { Data, Link } from "../dataType";
+  import type { Link } from '../dataType';
 
-  import Label from "../components/Label.svelte";
-  import { linksStore } from "../stores";
+  import Label from '../components/Label.svelte';
+  import { linksStore, seo } from '../stores';
 
   let links: Link[] = [];
 
-  linksStore.subscribe((l) => {
+  linksStore.subscribe(l => {
     links = l;
   });
+
+  $seo = {
+    title: 'Liens',
+    description: 'Divers liens relatif à des travaux de Léo Maradan'
+  };
 </script>
 
 <main>

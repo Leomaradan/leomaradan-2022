@@ -1,20 +1,20 @@
 <script lang="ts">
-  import type { ExperienceFreelance } from "../../dataType";
-  import Item from "../Item.svelte";
+  import type { ExperienceFreelance } from '../../dataType';
+  import Item from '../Item.svelte';
 
   export let experience: ExperienceFreelance;
 
   function getYearDate(time: number) {
-    return new Date(experience.startDate).getFullYear();
+    return new Date(time).getFullYear();
   }
 
   const startYear = getYearDate(experience.startDate);
-  const endYear = getYearDate(experience.endDate);
+  const endYear = experience.endDate ? getYearDate(experience.endDate) : 0;
 
   const startDateString = new Date(experience.startDate).toISOString();
   const endDateString = experience.endDate
     ? new Date(experience.endDate).toISOString()
-    : "";
+    : '';
   const currentDate = new Date().toISOString();
 
   const hasSameStartEndDate = startYear === endYear; // Display end date but with a class to hide it
@@ -27,22 +27,16 @@
   <h3 itemprop="roleName">{experience.jobTitle}</h3>
 
   <span>
-    <time
-      itemprop="startDate"
-      content={startDateString}
-      datetime={startDateString}>{startYear}</time
+    <time itemprop="startDate" content={startDateString} datetime={startDateString}
+      >{startYear}</time
     >
     {#if hasNoEndDate}
       -
-      <time itemprop="endDate" content={currentDate} datetime={currentDate}
-        >Présent</time
-      >
+      <time itemprop="endDate" content={currentDate} datetime={currentDate}>Présent</time>
     {:else}
       <span class:hasSameStartEndDate>
-        <time
-          itemprop="endDate"
-          content={endDateString}
-          datetime={endDateString}>{endYear}</time
+        <time itemprop="endDate" content={endDateString} datetime={endDateString}
+          >{endYear}</time
         >
       </span>
     {/if}

@@ -1,15 +1,20 @@
 <script lang="ts">
-  import { galleriesStore } from "../stores";
+  import { galleriesStore, seo } from '../stores';
 
-  import Label from "../components/Label.svelte";
-  import type { Gallery } from "../dataType";
-  import { Link } from "svelte-routing";
+  import Label from '../components/Label.svelte';
+  import type { Gallery } from '../dataType';
+  import { Link } from 'svelte-routing';
 
   let galleries: Gallery[] = [];
 
-  galleriesStore.subscribe((g) => {
+  galleriesStore.subscribe(g => {
     galleries = g;
   });
+
+  $seo = {
+    title: 'Galleries',
+    description: 'Galleries de photographies prises par Léo Maradan'
+  };
 </script>
 
 <main>

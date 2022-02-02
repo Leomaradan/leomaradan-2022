@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import './button.css';
   import { createEventDispatcher } from 'svelte';
   /**
@@ -9,7 +9,7 @@
   /**
    * What background color to use
    */
-  export let backgroundColor;
+  export let backgroundColor: string;
   /**
    * How large should the button be?
    */
@@ -28,7 +28,8 @@
   /**
    * Optional click handler
    */
-  function onClick(event) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function onClick(event: any) {
     dispatch('click', event);
   }
 </script>
@@ -37,6 +38,7 @@
   type="button"
   class={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
   {style}
-  on:click={onClick}>
+  on:click={onClick}
+>
   {label}
 </button>

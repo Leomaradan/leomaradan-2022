@@ -1,11 +1,6 @@
 <script lang="ts">
-  import type {
-    Course,
-    Experience,
-    ExperienceFreelance,
-    Project,
-  } from "../../dataType";
-  import Item from "../Item.svelte";
+  import type { Project } from '../../dataType';
+  import Item from '../Item.svelte';
 
   export let project: Project;
 

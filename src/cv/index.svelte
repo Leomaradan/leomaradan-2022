@@ -1,26 +1,31 @@
 <script lang="ts">
-  import type { CV } from "../dataType";
-  import { cvStore } from "../stores";
+  import type { CV } from '../dataType';
+  import { cvStore, seo } from '../stores';
 
-  import Projects from "./Projects/index.svelte";
-  import Info from "./Info.svelte";
-  import Experiences from "./Experiences/index.svelte";
-  import Courses from "./Courses/index.svelte";
+  import Projects from './Projects/index.svelte';
+  import Info from './Info.svelte';
+  import Experiences from './Experiences/index.svelte';
+  import Courses from './Courses/index.svelte';
 
   let sections: CV;
 
-  cvStore.subscribe((cv) => {
+  cvStore.subscribe(cv => {
     sections = cv as CV;
   });
 
   $: courses = sections.course ?? [];
   $: educations = sections.education ?? [];
   $: experiences = sections.experience ?? [];
-  $: info = sections.info ;
+  $: info = sections.info;
   $: languages = sections.languages ?? [];
   $: projects = sections.projects ?? [];
   $: recreations = sections.recreation ?? [];
   $: skillsCategories = sections.skills ?? [];
+
+  $seo = {
+    title: 'Curriculum Vitae',
+    description: 'Curriculum Vitae de Léo Maradan'
+  };
 </script>
 
 <section itemscope itemtype="http://schema.org/Person">
@@ -36,11 +41,7 @@
   <section id="languages">
     <ul>
       {#each languages as [language, level]}
-        <li
-          itemprop="knowsLanguage"
-          itemscope
-          itemtype="https://schema.org/Language"
-        >
+        <li itemprop="knowsLanguage" itemscope itemtype="https://schema.org/Language">
           <span itemprop="name">{language}</span>
           <span itemprop="description">{level}</span>
         </li>
