@@ -9,7 +9,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["*.ts, *.svelte"],
+      files: ["*.ts", "*.svelte"],
       parser: "@typescript-eslint/parser",
       overrides: [
         {

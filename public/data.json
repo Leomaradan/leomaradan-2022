@@ -1,11 +1,239 @@
 {
-  "cv": [
-    {
-      "content": "# 2017 - 2018 \r\n## Développements Freelance\r\n\r\n- Développement de templates et d’extensions WordPress, mise\r\nen place d’un site WordPress de podcast audio avec liaison\r\niTunes\r\n- Développement d’une application « bibliothèque » avec\r\nAngular 2 + ExpressJS\r\n- Développement Frontend avec React (site vitrine d’art)\r\n- Création de sites avec Laravel + VueJS, interactions\r\nbidirectionnelles du site avec Twitter (lecture et écriture de\r\ntweet depuis l’application Laravel)",
-      "order": 0,
-      "title": "Expérience"
-    }
-  ],
+  "cv": {
+    "course": [
+      {
+        "endDate": 1298934000000,
+        "jobTitle": "Programme InfoPlus",
+        "location": "Neuchâtel",
+        "organisationName": "CEG",
+        "startDate": 1288566000000
+      },
+      {
+        "endDate": 1154383200000,
+        "jobTitle": "Auxiliaire informatique",
+        "location": "Le Locle",
+        "organisationName": "Tissot SA",
+        "startDate": 1151704800000
+      }
+    ],
+    "education": [
+      {
+        "endDate": 1151704800000,
+        "jobTitle": "Informaticien CFC",
+        "location": "Le Locle",
+        "organisationName": "Cifom ET",
+        "startDate": 1028152800000
+      },
+      {
+        "endDate": 1277935200000,
+        "jobTitle": "Informaticien de Gestion",
+        "location": "Neuchâtel",
+        "organisationName": "Ecole Supérieure",
+        "startDate": 1217541600000
+      },
+      {
+        "description": "150h de cours d'anglais",
+        "endDate": 1543618800000,
+        "jobTitle": "Anglais Intensif",
+        "location": "Neuchâtel",
+        "organisationName": "Interlangues",
+        "startDate": 1551394800000
+      }
+    ],
+    "experience": [
+      {
+        "jobTitle": "Développeur React",
+        "location": "Yverdon-les-Bains",
+        "organisationName": "BPA Solutions SA",
+        "startDate": 1548975600000,
+        "task": []
+      },
+      {
+        "endDate": 1548975600000,
+        "jobTitle": "Développeur Freelance",
+        "startDate": 1512082800000,
+        "task": [
+          "Développement de templates et d’extensions WordPress, mise en place d’un site WordPress de podcast audio avec liaison iTunes",
+          "Développement d’une application « bibliothèque » avec Angular 2 + ExpressJS",
+          "Développement Frontend avec React (site vitrine d’art)",
+          "Création de sites avec Laravel + VueJS, interactions bidirectionnelles du site avec Twitter (lecture et écriture de tweet depuis l’application Laravel)"
+        ]
+      },
+      {
+        "endDate": 1525125600000,
+        "jobTitle": "Developpeur SharePoint",
+        "location": "Lausanne",
+        "organisationName": "API SA",
+        "startDate": 1512082800000,
+        "task": [
+          "Réalisation d’Add-In pour SharePoint Online",
+          "Projet React.js + API Rest de SharePoint"
+        ]
+      },
+      {
+        "endDate": 1480546800000,
+        "jobTitle": "Développeur Web",
+        "location": "Neuchâtel",
+        "organisationName": "Programme InfoPlus, CEG",
+        "startDate": 1470002400000,
+        "task": [
+          "Réalisation de sites à partir de maquettes Photoshop",
+          "Création de plugins Typo3"
+        ]
+      },
+      {
+        "endDate": 1454281200000,
+        "jobTitle": "Développeur SharePoint",
+        "location": "Yverdon-les-Bains",
+        "organisationName": "BPA Solutions SA",
+        "startDate": 1351724400000,
+        "task": [
+          "Développement de WebPart SharePoint coté client et coté serveur",
+          "Création d'un outil de chargement et gestion des fichiers JavaScript",
+          "Migration des fichiers JavaScript vers du TypeScript, formation des autres développeurs"
+        ]
+      },
+      {
+        "endDate": 1341093600000,
+        "jobTitle": "Développeur informatique",
+        "location": "Yverdon-les-Bains",
+        "organisationName": "BOS-Software Sàrl",
+        "startDate": 1312149600000,
+        "task": [
+          "Développement d'applications web de type Frontend",
+          "Développement d'une boutique en ligne",
+          "Extraction de données métier provenant de SQL Server et de SAP",
+          "Création d'applications web destinées aux smartphones"
+        ]
+      }
+    ],
+    "info": {
+      "addressLocality": "Colombier",
+      "postalCode": "2013",
+      "streetAddress": "Rue du Sentier 19a",
+      "weblinks": [
+        ["github.com/leomaradan", "https://github.com/leomaradan"],
+        [
+          "linkedin.com/in/leomaradan",
+          "https://www.linkedin.com/in/leomaradan/"
+        ],
+        ["leomaradan.com", "https://leomaradan.com/"]
+      ]
+    },
+    "languages": [
+      ["Français", "Langue maternelle"],
+      ["Anglais", "Niveau B2+"],
+      ["Japonais", "Notions"]
+    ],
+    "projects": [
+      {
+        "description": "Webmaster pour le festival de musique Tournez la Meule",
+        "name": "Tournez la Meule",
+        "task": [
+          "Réalisation de thèmes graphiques sur WordPress",
+          "Création d’extensions WordPress spécifiques",
+          "Thème changeant chaque année, avec les anciens thèmes accessibles en temps qu’archives du festival"
+        ]
+      },
+      {
+        "description": "Webmaster pour le groupe 5 aux Moulins",
+        "name": "5 aux Moulins",
+        "task": [
+          "Intégration de design (maquette Photoshop ou site iWeb)",
+          "Réalisation de thème WordPress sur mesure",
+          "Mise en place d’architecture multi-blog / multi-domaines"
+        ]
+      },
+      {
+        "description": "Développeur dans un projet de jeu web à monde persistant",
+        "name": "Eternal War One",
+        "task": [
+          "Réécriture de fonctionnalités déjà existantes du jeu en vue d'ajout de possibilités",
+          "Optimisation des accès à la base de données, implémentation d'ORM et de couche d'abstraction de données",
+          "Mise en place de générateurs de contenu (pages html, images SVG)"
+        ]
+      },
+      {
+        "description": "Chef de projet d'un jeu web à monde persistant",
+        "name": "Deus Lex",
+        "task": [
+          "Conception d'architecture de programmation",
+          "Management d'une équipe de développeurs bénévoles"
+        ]
+      },
+      {
+        "description": "Chef de projet d'un jeu web à monde persistant",
+        "name": "Deus Lex",
+        "task": [
+          "Développement d'une fonctionnalité permettant aux visiteurs de voter pour leur site favori dans une liste, ou d'en proposer de nouveaux",
+          "Développement de modules destinés à l'administration du site"
+        ]
+      },
+      {
+        "name": "Projets personnels",
+        "task": [
+          "Création d'un outil complet de type CMS/Blog avec le Framework PHP Laravel",
+          "Conception et développement de Framework et d'outils en PHP Orienté Objet pour la création, mise en place et gestion de jeux en ligne",
+          "Réalisation de courts-métrages",
+          "Intégration d’effets spéciaux avec Adobe After Effect et Adobe Photoshop"
+        ]
+      }
+    ],
+    "recreation": [
+      "Photographie",
+      "Cuisine",
+      "Création vidéo",
+      "Musique (chant et guitare)",
+      "Plongée sous-marine"
+    ],
+    "skills": [
+      {
+        "skills": [
+          "HTML5",
+          "CSS3",
+          "Less",
+          "Sass",
+          "PHP 7",
+          "TypeScript",
+          "JavaScript",
+          "C#",
+          "SQL"
+        ],
+        "title": "Development & Web"
+      },
+      {
+        "skills": [
+          "React.js",
+          "jQuery",
+          "Laravel",
+          "Bootstrap",
+          "NodeJS",
+          "VueJS"
+        ],
+        "title": "Framework"
+      },
+      {
+        "skills": [
+          "Composer",
+          "NPM",
+          "Grunt",
+          "Gulp",
+          "BrowserSync",
+          "Git",
+          "QUnit"
+        ],
+        "title": "Outils"
+      },
+      {
+        "skills": ["PostgreSQL", "MySQL", "SQL Server"],
+        "title": "SGBD"
+      },
+      {
+        "skills": ["Adobe Photoshop", "Adobe After Effect", "Adobe Premiere"],
+        "title": "Autres compétences"
+      }
+    ]
+  },
   "galleries": [
     {
       "cover": "url.png",

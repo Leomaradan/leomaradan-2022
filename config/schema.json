@@ -2,20 +2,197 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "additionalProperties": false,
   "definitions": {
-    "CVSection": {
+    "CV": {
       "additionalProperties": false,
       "properties": {
-        "content": {
-          "type": "string"
+        "course": {
+          "items": {
+            "$ref": "#/definitions/Course"
+          },
+          "type": "array"
         },
-        "order": {
-          "type": "number"
+        "education": {
+          "items": {
+            "$ref": "#/definitions/Course"
+          },
+          "type": "array"
         },
-        "title": {
-          "type": "string"
+        "experience": {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/ExperienceFreelance"
+              },
+              {
+                "$ref": "#/definitions/Experience"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "info": {
+          "additionalProperties": false,
+          "properties": {
+            "addressLocality": {
+              "type": "string"
+            },
+            "postalCode": {
+              "type": "string"
+            },
+            "streetAddress": {
+              "type": "string"
+            },
+            "weblinks": {
+              "items": {
+                "items": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "addressLocality",
+            "postalCode",
+            "streetAddress",
+            "weblinks"
+          ],
+          "type": "object"
+        },
+        "languages": {
+          "items": {
+            "items": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "maxItems": 2,
+            "minItems": 2,
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "projects": {
+          "items": {
+            "$ref": "#/definitions/Project"
+          },
+          "type": "array"
+        },
+        "recreation": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "skills": {
+          "items": {
+            "$ref": "#/definitions/SkillCategory"
+          },
+          "type": "array"
         }
       },
-      "required": ["content", "order", "title"],
+      "required": [
+        "course",
+        "education",
+        "experience",
+        "info",
+        "languages",
+        "projects",
+        "recreation",
+        "skills"
+      ],
+      "type": "object"
+    },
+    "Course": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "number"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "organisationName": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "number"
+        }
+      },
+      "required": ["jobTitle", "location", "organisationName", "startDate"],
+      "type": "object"
+    },
+    "Experience": {
+      "additionalProperties": false,
+      "properties": {
+        "endDate": {
+          "type": "number"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "organisationName": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "number"
+        },
+        "task": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "jobTitle",
+        "location",
+        "organisationName",
+        "startDate",
+        "task"
+      ],
+      "type": "object"
+    },
+    "ExperienceFreelance": {
+      "additionalProperties": false,
+      "properties": {
+        "endDate": {
+          "type": "number"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "number"
+        },
+        "task": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": ["jobTitle", "startDate", "task"],
       "type": "object"
     },
     "Gallery": {
@@ -130,14 +307,46 @@
       },
       "required": ["date", "id", "name", "url"],
       "type": "object"
+    },
+    "Project": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "task": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": ["name", "task"],
+      "type": "object"
+    },
+    "SkillCategory": {
+      "additionalProperties": false,
+      "properties": {
+        "skills": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": ["skills", "title"],
+      "type": "object"
     }
   },
   "properties": {
     "cv": {
-      "items": {
-        "$ref": "#/definitions/CVSection"
-      },
-      "type": "array"
+      "$ref": "#/definitions/CV"
     },
     "galleries": {
       "items": {
