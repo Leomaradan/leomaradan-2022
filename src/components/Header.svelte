@@ -2,10 +2,10 @@
   import { link } from 'svelte-routing';
 
   export let routes: Array<[string, string]>;
-  export let horizontalMenu: HTMLElement;
+  export let header: HTMLElement;
 </script>
 
-<header bind:this={horizontalMenu}>
+<header bind:this={header}>
   <nav>
     <div class="icon" />
     <input type="checkbox" />
@@ -27,7 +27,7 @@
     position: fixed;
     height: 50px;
     z-index: 100;
-    border-bottom: 1px solid fade(@lightColor, 75%);
+    border-bottom: 1px solid rgba(var(--light-values), 0.75); // fade(@lightColor, 75%);
   }
 
   .icon,
@@ -57,7 +57,7 @@
     top: 9px;
 
     border-radius: 2px;
-    border: 1px solid fade(@lightColor, 75%);
+    border: 1px solid rgba(var(--light-values), 0.75); //fade(@lightColor, 75%);
 
     cursor: pointer;
 
@@ -68,29 +68,30 @@
       display: block;
       width: 2rem;
       height: 0;
-      box-shadow: 0 8px 0 1px @lightColor, 0 15px 0 1px @lightColor,
-        0 22px 0 1px @lightColor;
+      box-shadow: 0 8px 0 1px var(--light-color), 0 15px 0 1px var(--light-color),
+        0 22px 0 1px var(--light-color);
     }
   }
 
   a {
     text-decoration: none;
     text-transform: uppercase;
-    color: @lightColor;
+    color: var(--light-color);
     padding: 0 0.8rem;
     position: relative;
 
     &:hover {
-      color: @lightColor;
+      color: var(--light-color);
       &:before {
         left: 0;
         right: 0;
+        height: 2px;
       }
     }
 
     &:before {
-      background: fade(@lightColor, 75%);
-      height: 2px;
+      background: rgba(var(--light-values), 0.75); //fade(@lightColor, 75%);
+      height: 0;
       content: '';
       position: absolute;
       z-index: -1;
@@ -107,5 +108,11 @@
     list-style: none;
     justify-content: center;
     display: flex;
+  }
+
+  @media print {
+    header {
+      display: none;
+    }
   }
 </style>

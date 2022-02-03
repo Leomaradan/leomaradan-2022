@@ -14,22 +14,23 @@
 
   let innerHeight: number;
   let title: HTMLDivElement;
-  export let horizontaleMenu: HTMLElement;
+  export let header: HTMLElement;
+  let y: number;
 
   const fixedNavbar = () => {
     const position = innerHeight;
-    const positionBottom = position - horizontaleMenu.clientHeight;
+    const positionBottom = position - header.clientHeight;
 
-    if (window.scrollY > positionBottom) {
-      horizontaleMenu.classList.add('Scroll');
+    if (y > positionBottom) {
+      header.classList.add('Scroll');
     }
-    if (window.scrollY < positionBottom + 1) {
-      horizontaleMenu.classList.remove('Scroll');
+    if (y < positionBottom + 1) {
+      header.classList.remove('Scroll');
     }
 
     if (window.matchMedia('(min-width: 600px)').matches) {
       // fade 50% -> 75%
-      const relativeScroll = (100 / position) * window.scrollY;
+      const relativeScroll = (100 / position) * y;
 
       const titlePosition = minmax((40 / 75) * relativeScroll + 35, 80);
 
@@ -43,15 +44,10 @@
   };
 </script>
 
-<svelte:window on:scroll={fixedNavbar} />
+<svelte:window on:scroll={fixedNavbar} bind:scrollY={y} />
 
 <div class="banner" bind:clientHeight={innerHeight}>
-  <div
-    class="parallax-window"
-    data-parallax="scroll"
-    data-image-src="img/cover.jpg"
-    data-z-index="10"
-  />
+  <div class="parallax-window" data-z-index="10" />
   <h1 bind:this={title}>Léo Maradan</h1>
 </div>
 
@@ -68,9 +64,9 @@
     top: 35%;
     position: absolute;
     z-index: 15;
-    font-family: @font-cursive;
+    font-family: var(--font-cursive);
     font-size: 6rem;
-    color: @lightColor;
+    color: var(--light-color);
   }
 
   .parallax-window {
@@ -81,6 +77,14 @@
     h1 {
       font-size: 1.5rem;
       top: 0;
+    }
+  }
+
+  @media print {
+    .banner,
+    .parallax-window,
+    :global(.parallax-mirror) {
+      display: none;
     }
   }
 </style>

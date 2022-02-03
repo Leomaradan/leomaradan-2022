@@ -14,7 +14,7 @@ export const seo = writable<{
 
 export const linksStore = derived(data, $data => {
   if ($data !== null) {
-    return $data.links.sort((a, b) => a.order - b.order);
+    return $data.links;
   }
 
   return [];
@@ -25,7 +25,21 @@ export const cvStore = derived(data, $data => {
     return $data.cv;
   }
 
-  return {};
+  return {
+    course: [],
+    education: [],
+    experience: [],
+    info: {
+      addressLocality: '',
+      postalCode: '',
+      streetAddress: '',
+      weblinks: []
+    },
+    languages: [],
+    projects: [],
+    recreation: [],
+    skills: []
+  };
 });
 
 export const galleriesStore = derived(data, $data => {
