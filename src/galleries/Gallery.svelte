@@ -1,9 +1,8 @@
 <script lang="ts">
-  import { galleriesStore, getGallery } from "../stores";
+  import { galleriesStore, getGallery } from '../stores';
 
-  import Label from "../components/Label.svelte";
-  import type { Gallery } from "../dataType";
-  import { Link } from "svelte-routing";
+  import type { Gallery } from '../dataType';
+  import { Link } from 'svelte-routing';
 
   let galleries: Gallery[] = [];
 
@@ -13,13 +12,12 @@
 
   $: galleryPictures = gallery?.pictures ?? [];
 
-  galleriesStore.subscribe((g) => {
+  galleriesStore.subscribe(g => {
     galleries = g;
   });
 </script>
 
 <main>
-  <Label title="Gallery" />
   {gallery?.title}
   <ul>
     {#each galleryPictures as { id: pictureId, name }}

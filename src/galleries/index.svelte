@@ -1,15 +1,7 @@
 <script lang="ts">
   import { galleriesStore, seo } from '../stores';
 
-  import Label from '../components/Label.svelte';
-  import type { Gallery } from '../dataType';
   import { Link } from 'svelte-routing';
-
-  let galleries: Gallery[] = [];
-
-  galleriesStore.subscribe(g => {
-    galleries = g;
-  });
 
   $seo = {
     title: 'Galleries',
@@ -18,9 +10,8 @@
 </script>
 
 <main>
-  <Label title="Galleries" />
   <ul>
-    {#each galleries as { title, id }}
+    {#each $galleriesStore as { title, id }}
       <li>
         <Link to="gallery/{id}">{title}</Link>
       </li>
