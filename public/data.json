@@ -113,10 +113,7 @@
       "streetAddress": "Rue du Sentier 19a",
       "weblinks": [
         ["github.com/leomaradan", "https://github.com/leomaradan"],
-        [
-          "linkedin.com/in/leomaradan",
-          "https://www.linkedin.com/in/leomaradan/"
-        ],
+        ["linkedin.com/in/leomaradan", "https://www.linkedin.com/in/leomaradan/"],
         ["leomaradan.com", "https://leomaradan.com/"]
       ]
     },
@@ -202,26 +199,11 @@
         "title": "Development & Web"
       },
       {
-        "skills": [
-          "React.js",
-          "jQuery",
-          "Laravel",
-          "Bootstrap",
-          "NodeJS",
-          "VueJS"
-        ],
+        "skills": ["React.js", "jQuery", "Laravel", "Bootstrap", "NodeJS", "VueJS"],
         "title": "Framework"
       },
       {
-        "skills": [
-          "Composer",
-          "NPM",
-          "Grunt",
-          "Gulp",
-          "BrowserSync",
-          "Git",
-          "QUnit"
-        ],
+        "skills": ["Composer", "NPM", "Grunt", "Gulp", "BrowserSync", "Git", "QUnit"],
         "title": "Outils"
       },
       {
@@ -259,9 +241,14 @@
   "home": "Accueil",
   "links": [
     {
-      "order": 0,
       "title": "LinkedIn",
       "url": "https://www.linkedin.com/in/leomaradan"
+    },
+    {
+      "description": "Un site WordPress qui héberge un podcast, fait par des amis. Le travail a été de créer un theme personnalisé, et de gérer la diffusion des podcasts (sur iTunes et autres plateformes) depuis le backend.",
+      "image": "portfolio/vgs.png",
+      "title": "VGS Podcast",
+      "url": "https://vgs-podcast.ch"
     }
   ]
 }

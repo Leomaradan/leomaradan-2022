@@ -65,9 +65,7 @@ export function isExperienceFreelance(
   return (exp as Experience).organisationName === undefined;
 }
 
-export function isCourse(
-  exp: Course | Experience | ExperienceFreelance
-): exp is Course {
+export function isCourse(exp: Course | Experience | ExperienceFreelance): exp is Course {
   return (
     (exp as Experience).organisationName !== undefined &&
     (exp as Experience).task === undefined
@@ -102,16 +100,18 @@ export interface CV {
 }
 
 export interface Link {
-  description?: string;
-  image?: string;
-  order: number;
   title: string;
   url: string;
+}
+
+export interface EnrichedLink extends Link {
+  description: string;
+  image: string;
 }
 
 export interface Data {
   cv: CV;
   galleries: Gallery[];
   home: string;
-  links: Link[];
+  links: Array<Link | EnrichedLink>;
 }

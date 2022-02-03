@@ -59,12 +59,7 @@
               "type": "array"
             }
           },
-          "required": [
-            "addressLocality",
-            "postalCode",
-            "streetAddress",
-            "weblinks"
-          ],
+          "required": ["addressLocality", "postalCode", "streetAddress", "weblinks"],
           "type": "object"
         },
         "languages": {
@@ -139,6 +134,25 @@
       "required": ["jobTitle", "location", "organisationName", "startDate"],
       "type": "object"
     },
+    "EnrichedLink": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": ["description", "image", "title", "url"],
+      "type": "object"
+    },
     "Experience": {
       "additionalProperties": false,
       "properties": {
@@ -164,13 +178,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "jobTitle",
-        "location",
-        "organisationName",
-        "startDate",
-        "task"
-      ],
+      "required": ["jobTitle", "location", "organisationName", "startDate", "task"],
       "type": "object"
     },
     "ExperienceFreelance": {
@@ -245,15 +253,6 @@
     "Link": {
       "additionalProperties": false,
       "properties": {
-        "description": {
-          "type": "string"
-        },
-        "image": {
-          "type": "string"
-        },
-        "order": {
-          "type": "number"
-        },
         "title": {
           "type": "string"
         },
@@ -261,7 +260,7 @@
           "type": "string"
         }
       },
-      "required": ["order", "title", "url"],
+      "required": ["title", "url"],
       "type": "object"
     },
     "Picture": {
@@ -359,7 +358,14 @@
     },
     "links": {
       "items": {
-        "$ref": "#/definitions/Link"
+        "anyOf": [
+          {
+            "$ref": "#/definitions/Link"
+          },
+          {
+            "$ref": "#/definitions/EnrichedLink"
+          }
+        ]
       },
       "type": "array"
     }
