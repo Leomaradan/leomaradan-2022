@@ -1,72 +1,89 @@
 <script lang="ts">
-  import type { CV } from '../dataType';
   import { cvStore, seo } from '../stores';
 
   import Projects from './Projects/index.svelte';
-  import Info from './Info.svelte';
+  import Info from './Info/index.svelte';
   import Experiences from './Experiences/index.svelte';
   import Courses from './Courses/index.svelte';
+  import Languages from './Language/index.svelte';
+  import Recreations from './Recreation/index.svelte';
+  import Skills from './Skills/index.svelte';
 
-  let sections: CV;
-
-  cvStore.subscribe(cv => {
-    sections = cv as CV;
-  });
-
-  $: courses = sections.course ?? [];
-  $: educations = sections.education ?? [];
-  $: experiences = sections.experience ?? [];
-  $: info = sections.info;
-  $: languages = sections.languages ?? [];
-  $: projects = sections.projects ?? [];
-  $: recreations = sections.recreation ?? [];
-  $: skillsCategories = sections.skills ?? [];
+  $: courses = $cvStore.course;
+  $: educations = $cvStore.education;
+  $: experiences = $cvStore.experience;
+  $: info = $cvStore.info;
+  $: languages = $cvStore.languages;
+  $: projects = $cvStore.projects;
+  $: recreations = $cvStore.recreation;
+  $: skillsCategories = $cvStore.skills;
 
   $seo = {
     title: 'Curriculum Vitae',
     description: 'Curriculum Vitae de Léo Maradan'
   };
+
+  // $page = 'cv';
 </script>
 
-<section itemscope itemtype="http://schema.org/Person">
-  <h1 itemprop="name">
-    <span itemprop="givenName">Léo</span>
-    <span itemprop="familyName">Maradan</span>
-  </h1>
-  <div itemprop="jobTitle">Développeur Web</div>
-  {#if info}<Info {info} />{/if}
-  <Experiences id="experience" title="Expérience" {experiences} />
-  <Courses id="course" title="Stages" {courses} />
-  <Courses id="education" title="Formation" courses={educations} />
-  <section id="languages">
-    <ul>
-      {#each languages as [language, level]}
-        <li itemprop="knowsLanguage" itemscope itemtype="https://schema.org/Language">
-          <span itemprop="name">{language}</span>
-          <span itemprop="description">{level}</span>
-        </li>
-      {/each}
-    </ul>
-  </section>
-  <Projects {projects} />
+<section itemscope itemtype="http://schema.org/Person" class="cv">
+  <div class="head">
+    <h1 itemprop="name" id="name">
+      <span itemprop="givenName">Léo</span>
+      <span itemprop="familyName">Maradan</span>
+    </h1>
+    <div itemprop="jobTitle" id="title" class="heading-style">Développeur Web</div>
+    <img src="img/portrait.jpg" alt="Portrait de Léo Maradan" itemprop="image" />
+  </div>
+  <div class="info">
+    <Info {info} />
+  </div>
 
-  <section id="recreation" itemscope itemtype="http://schema.org/ItemList">
-    <h2 itemprop="name">Loisirs</h2>
-    <ul>
-      {#each recreations as recreation}
-        <li itemprop="itemListElement">{recreation}</li>
-      {/each}
-    </ul>
-  </section>
-  <section id="skills" itemscope itemtype="http://schema.org/ItemList">
-    <h2 itemprop="name">Skills</h2>
-    {#each skillsCategories as { skills, title }}
-      <h3>{title}</h3>
-      <ul>
-        {#each skills as skill}
-          <li itemprop="itemListElement">{skill}</li>
-        {/each}
-      </ul>
-    {/each}
-  </section>
+  <div class="experience">
+    <Experiences id="experience" title="Expérience" {experiences} />
+  </div>
+  <div class="course"><Courses id="course" title="Stages" {courses} /></div>
+  <div class="education">
+    <Courses id="education" title="Formation" courses={educations} />
+  </div>
+  <div class="language"><Languages {languages} /></div>
+  <div class="project"><Projects {projects} /></div>
+  <div class="recreation"><Recreations {recreations} /></div>
+  <div class="skills"><Skills {skillsCategories} /></div>
 </section>
+
+<style lang="less">
+  @areas: info, experience, skills, education, project, course, language, recreation;
+  .cv {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 'head head' 'info experience' 'skills experience' 'education project' 'course project' 'language project' 'recreation project';
+  }
+
+  .head {
+    grid-area: head;
+    display: flex;
+    align-items: center;
+
+    h1 {
+      display: none;
+    }
+
+    img {
+      max-height: 15rem;
+    }
+  }
+
+  each(@areas, {
+    .@{value} {
+      grid-area: @value;
+      border: 5px solid black;
+    }
+});
+
+  @media print {
+    h1 {
+      display: block !important;
+    }
+  }
+</style>

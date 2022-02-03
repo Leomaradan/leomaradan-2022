@@ -1,6 +1,7 @@
 <script lang="ts">
+  import { marked } from 'marked';
+
   import type { Project } from '../../dataType';
-  import Item from '../Item.svelte';
 
   export let project: Project;
 
@@ -9,8 +10,19 @@
 
 <div itemprop="contributor" itemscope itemtype="https://schema.org/Project">
   <h3 itemprop="name">{project.name}</h3>
-  <p itemprop="description">{project.description}</p>
-  {#each tasks as task}
-    <Item {task} />
-  {/each}
+  {#if project.description}
+    <p itemprop="description">{@html marked(project.description)}</p>
+  {/if}
+
+  <ul>
+    {#each tasks as task}
+      <li>{@html marked(task)}</li>
+    {/each}
+  </ul>
 </div>
+
+<style>
+  li {
+    margin-left: 3rem;
+  }
+</style>

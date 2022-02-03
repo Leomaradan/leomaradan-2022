@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { CV } from "../dataType";
+  import type { CV } from '../../dataType';
 
-  export let info: CV["info"];
+  export let info: CV['info'];
 
   const age = new Date().getFullYear() - new Date(1986, 4, 19).getFullYear();
 </script>
@@ -22,8 +22,7 @@
     <dd><a itemprop="telephone" href="tel:+41763993572">076 399 35 72</a></dd>
     <dt>E-Mail</dt>
     <dd>
-      <a itemprop="email" href="mailto:leo@leomaradan.com">leo@leomaradan.com</a
-      >
+      <a itemprop="email" href="mailto:leo@leomaradan.com">leo@leomaradan.com</a>
     </dd>
   </dl>
 
@@ -37,11 +36,37 @@
   <dl>
     <dt>Age</dt>
     <dd>{age} ans (15.05.1986)</dd>
-    <dt>Nationalité</dt>
+    <dt class="show">Nationalité</dt>
     <dd>Suisse</dd>
     <dt>Véhicule</dt>
     <dd>Permis Voiture (B)</dd>
-    <dt>Service Militaire</dt>
+    <dt class="show">Service Militaire</dt>
     <dd>terminé</dd>
   </dl>
 </section>
+
+<style lang="less">
+  dl {
+    margin: 0;
+  }
+
+  dt:not(.show) {
+    display: none;
+
+    & + dd {
+      margin: 0;
+    }
+  }
+
+  .show {
+    display: inline;
+    & + dd {
+      display: inline;
+      margin: 0;
+
+      &::before {
+        content: ' ';
+      }
+    }
+  }
+</style>

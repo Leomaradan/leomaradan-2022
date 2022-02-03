@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Project } from "../../dataType";
-  import ProjectComponent from "./Project.svelte";
+  import type { Project } from '../../dataType';
+  import ProjectComponent from './Project.svelte';
 
   export let projects: Project[];
 </script>
