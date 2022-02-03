@@ -4,19 +4,12 @@
     "svelte-routing": "^1.6.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.12",
     "@snowcoders/sortier": "^3.3.0",
-    "@storybook/addon-actions": "^6.4.15",
-    "@storybook/addon-essentials": "^6.4.15",
-    "@storybook/addon-links": "^6.4.15",
-    "@storybook/addon-svelte-csf": "^1.1.0",
-    "@storybook/svelte": "^6.4.15",
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
     "@tsconfig/svelte": "^2.0.1",
     "@types/marked": "^4.0.2",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.10.1",
-    "babel-loader": "^8.2.3",
     "eslint": "^8.7.0",
     "eslint-plugin-svelte3": "^3.4.0",
     "husky": "^7.0.4",
@@ -27,7 +20,6 @@
     "pretty-quick": "^3.1.3",
     "svelte": "^3.46.3",
     "svelte-check": "^2.2.7",
-    "svelte-loader": "^3.1.2",
     "svelte-preprocess": "^4.9.8",
     "tslib": "^2.3.1",
     "typescript": "^4.4.4",
@@ -43,15 +35,13 @@
   "name": "leomaradan-2022-site",
   "scripts": {
     "build": "vite build",
-    "build-storybook": "build-storybook",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "dev": "vite",
     "format": "prettier --write ./src/**/*.{js,svelte,html,ts}",
     "lint": "eslint './src/**/*.{js,ts,svelte}'",
     "lint:fix": "eslint --fix './src/**/*.{js,ts,svelte}'",
     "preview": "vite preview",
-    "schema": "typescript-json-schema ./src/dataType.ts Data --required --noExtraProps --out config/schema.json",
-    "storybook": "start-storybook -p 6006"
+    "schema": "typescript-json-schema ./src/dataType.ts Data --required --noExtraProps --out config/schema.json"
   },
   "type": "module",
   "version": "0.0.1"
